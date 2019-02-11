@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="sogou_site_verification" content="TOyU0aWQKw"/>
+    <%- block('title').toString() %>
+    <%- block('keywords').toString() %>
+    <%- block('description').toString() %>
+
+    <link type="text/css" rel="stylesheet" href="/public/css/front/base.min.css" />
+    <link type="text/css" rel="stylesheet" href="/public/css/front/common.min.css" />
+    <%- block('headStyle').toString() %>
+</head>
+<body>
+<div class="home">
+    <header>
+        <!-- 头部-->
+        <div class="head-container">
+            <div class="head-title">
+                <a href="/">极限编程网</a>
+            </div>
+            <div class="head-subtitle">
+                夫天地者，万物之逆旅；光阴者，百代之过客。而浮生若梦，为欢几何？
+            </div>
+            <div class="head-ad">
+                <a target="_blank" href="https://s.click.taobao.com/t?e=m%3D2%26s%3DWU32g756VS0cQipKwQzePCperVdZeJviEViQ0P1Vf2kguMN8XjClAjwJUue27zylkaoalCr%2FU6qSYxvizkXkp868iCTtlyPlhv8pEZmNN6WuE3ZDQ9E8burQ%2BKNHXUoOiYWStHE%2B0ceFSvfO0N66nzO5MaXTjVACe2l9FrhMrdPv%2BfHIT3CFRNdvthxiSWPsdnn9YK8Mk5jfleFWJLnarYaVo1qVTQzCfw%2F8dhe%2BNbDGDmntuH4VtA%3D%3D">
+                    <img src="/public/images/alimama_300-100.jpg" alt="">
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="main-container">
+        <div class="left-container">
+            <div class="blogger-carousel-container">
+                <div class="blogger-carousel-box">
+                    <div class="side-box side-aboutme">
+                        <h3 class="side-h3">博主介绍</h3>
+                        <p>网名：暗夜余晖</p>
+                        <p>邮箱：itthinkme@sina.com</p>
+                        <p>Q Q：392440738</p>
+                        <p>就职：广联达科技股份有限公司</p>
+                        <div style="text-align:center;">
+                            <img class="weixin" src="/public/images/weixin.jpg" alt="暗夜余晖" />
+                        </div>
+                    </div>
+                    <div class="side-box side-aboutme">
+                        <h3 class="side-h3">博主介绍</h3>
+                        <p>网名：持之以恒</p>
+                        <p>邮箱：Body_guo@aliyun.com</p>
+                        <p>Q Q：648064117</p>
+                        <p>领域：JAVA、.NET、大数据</p>
+                        <div style="text-align:center;">
+                            <img class="weixin" src="/public/images/648064117.jpg" alt="持之以恒" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="side-box side-meun">
+                <img src="/public/images/1496499582.png" alt="APP下载" class="appimg">
+                <div class="app-title">APP下载</div>
+            </div>
+            <div class="side-box side-meun">
+                <h3 class="side-h3">随笔分类</h3>
+                <ul>
+                    <% for(var i=0; i< categoryList.length ; i++) {%>
+                    <li>
+                        <a href="/list/<%= categoryList[i]._id %>"><%=categoryList[i].name %></a>
+                    </li>
+                    <%}%>
+                </ul>
+            </div>
+            <div class="side-box side-meun">
+                <h3 class="side-h3">码友链接</h3>
+                <ul>
+                    <li>
+                        <a href="http://www.dupengnet.com/" target="_blank" title="一蓑烟雨的博客">一蓑烟雨</a>
+                    </li>
+                    <li>
+                        <a href="http://www.dfwluo.com/" target="_blank" title="顶峰网络科技">顶峰网络科技</a>
+                    </li>
+                    <li>
+                        <a href="http://www.it-cainiao.com/" target="_blank" title="IT菜鸟教程">IT菜鸟教程</a>
+                    </li>
+                    <li>
+                        <a href="http://www.yuhelove.com/" target="_blank" title="菜鸟博客">菜鸟博客</a>
+                    </li>
+                    <li>
+                        <a href="http://www.jufidc.com/" target="_blank" title="飓风服务器">飓风服务器</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="right-container">
+            <%-body -%>
+
+        </div>
+
+    </div>
+    <footer>
+        <hr />
+        <div class="copyright">Copyright ©2017 暗夜余晖 京ICP备17031177号</div>
+    </footer>
+</div>
+
+
+
+<!-- 打赏-->
+<div class="mask play-mask">
+    打<br />赏
+</div>
+<!-- 二维码-->
+<div class="mask qr-mask">
+    <h3>喜欢请打赏</h3>
+    <div class="qr-tab">
+        <a href="javascript:;" class="active">
+            <img src="data:image/png;base64,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" />
+            支付宝
+        </a>
+        <a href="javascript:;">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVFSURBVEhLtVZrTJNXGH7BC0oLxhjMfsxE4xJ3z24xcf7YssmPZWZuxphtWba/259ll8zM6EJMxA0dZsoMm5q5LVkWF10krlIKRe6XcmuFCuMu0KICgoAUpPDsOd93OmopKM49zfP2nPN953m+876n56vMgteyRZqsDvEmTEhjAvh9f7ys6U3oleaEVKm1JmmHCFQlrpfmRJu08Oa/9eSGB0Bl3kY2W/qlPuEL7aZRH7deGq2t4ks0b4wm8F+pFtRD/UuWg9qVcFtzjcF6XpyTVtKiGe36PVCVrt3w2SrisbxqpFY91aVI0sQdC6kTk5449peE9ZdGmXMXdqhVW7OFnTzjSTwRrIsxTJ5p3oxd/r04deM3ZN204czQOWT0/4Cdne9jZcMaSK16gGUUo2CkRjSqveNJuCZSZx0XNzv/kimtETzV+ALODp7D5PQk5kL7eCc+69mNxXXMTN1izqX5HVpzMshUs1EXxmrBtradGJgc1PJ3R9aQDYnu1XxgVQaah+tFozKXWoYQq2KwqekVBKYCWhLoHb+qW3ciEAygb2JA94A/B89jUc1y6sTP6M1HqWFQrF6OJdWJqByp1lLAcf9PSCpKwpGeTD1iIjgdxHbvu1hd9jDqR716FPig40OIizUPac5HqWZQrIzBlqY3tISJY70/IrYsDt/6juoRE8r4tabtWOFaZdQ5BMdQPqSCxq5F1GTdQ9rRKFUMiuWCr7r3a4kZdN32YZqfSEzx0z3hQ+GNEnzffRzpVzJwqOsIXrycjNV1a7kQbjb1EFXcrCGPcIqLwcWLpYLDvgwte3d4hhuQ2n4Qx3tOoXbEjasT1zEavGVko29yAGcGziH58uuQMppXsvYubjrDS1MqaKpYLPiyI0XLzo+CG0XY07oPrWPteiQ6VJ7SfIeZTR48FfytV9Aw5CflDIolMdjsTjZnzIPWW23Y3ZKC4eCI0W+71YGW0TajHYI/0IuG4ZlNl9pziPpceTnrHvKTMgaDyxFbuAw5/U59e3Skdx6Fe8RjtKenp/FI+dNYU7IB48FxY0zhTc/bkNyl6An4jf4U79vofplZ5fEb8pNShhCLYvF4+XO4Pt5vTIjENdYxreOw7pnI9J/AUV8mxaf0CHC2LwspnQcwFhzTI8B3PccgBVx1KVetvKSEIZz5gk2VLzGFs+vnHr6EzK4Turcw2AfyIMyoFHOjKR8pYghnMZ/IITjl+1VPmYFv3I+T3T/r3sJwoS+HK+YmK6Kx8pFChnBeXMITaR1uTt6EZ6geO2vew46ad7C/OQ37mg/gI+8nWmph+LojnXVnqkM+UsAQzvzFeLJiI1KaUpGYy4M/hzczA5JtMt65Ck0jLVru3jDGc/2x0uchTp5oIR+5yBBJJ2mnkZMv+juumWVIdm3FRPC2lp0faud/7N1l6oVrST7DLNLA4BzXuPKtlW+hc/SKlp8b6W0ZEJtaBN9a4TpGUCtcEE3zh3LXYq83BeX9legL9Bu/5aGJIdQOuvF712mjfbL7F529sPm51klh8OsOJG+BzOGL/y9BjM2KNXkb8Gj+s1jnfAJx2SshWfwXU7ARexr3weJMoj53s5qj6ptn9dHY8o2xvZWxY4FUc4x5FLVz42TzZFLfDv5e1bjq2xYhxsEXRGhOGc9ru8UmcoH/8B3xw8YWDxd9YFQbUrfViktpnGPdYf6vtls+l3IOGOn7n6iM1evQbj0tKRJrGivYLWlSyAslpEqT/QFRGaq6qoXZrTbJXblCO4Yh27pN8iznebOf7alZIvfD7PgRLqRKciyfyh+y1DQS+Qc7LndRdtdxOQAAAABJRU5ErkJggg==" />
+            微信
+        </a>
+    </div>
+    <div class="qr-img">
+        <img src="/public/images/zhifubao-play.jpg" class="active" />
+        <img src="/public/images/weinxin-play.jpg" />
+    </div>
+    <h3 class="secure-play">请放心支付</h3>
+</div>
+<script src="/public/scripts/jquery-2.1.4.min.js"></script>
+<script src="/public/scripts/front/common.min.js"></script>
+<%- block('footScript').toString() %>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?fd1ceba3a88cc1b173642227fe246700";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+</body>
+</html>

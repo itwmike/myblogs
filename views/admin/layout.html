@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>博客后台管理</title>
+    <link href="/public/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="/public/css/bootstrap/font-awesome.min.css" rel="stylesheet" />
+    <link href="/public/css/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/public/css/admin/site.css" rel="stylesheet" />
+    <%- block('headStyle').toString() %>
+</head>
+<body>
+<div class="nav head">
+    <div class="nav_icon">
+        <i class="fa fa-leaf"></i>我的博客
+    </div>
+</div>
+<div class="main-container">
+    <div class="sidebar">
+        <div class="sidebar_title">
+            <i class="fa fa-cog p_r_10"></i>控制中心
+        </div>
+        <div class="sidebar_menu">
+            <ul>
+                <li class="focus">
+                    <a href="/admin/category/list">
+                        <i class="fa fa-user p_r_10 "></i>分类管理
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin/article/list">
+                        <i class="fa fa-user-secret p_r_10 "></i>文章管理
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-content">
+        <%-body -%>
+    </div>
+</div>
+<div class="foot">
+</div>
+
+<script src="/public/scripts/jquery-2.1.4.min.js"></script>
+<script src="/public/scripts/bootstrap.min.js"></script>
+<%- block('footScript').toString() %>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        html {font-size: 625%;/*100 ÷ 16 × 100% = 625%*/}
+        body {font-size: 0.14rem;/*0.14 × 100px = 14px */font-family:'微软雅黑','Microsoft YaHei';background:#dee7de;}
+        a{
+            text-decoration:none;
+        }
+        img{
+            border:none;
+        }
+        ul,li,ol{
+            list-style:none;
+        }
+        .head-container{
+            height: 60px;
+            background: #00a0e9;
+            position: absolute;
+            top:0px;
+            left:0px;
+            width: 100%;
+            text-align: center;
+        }
+        .foot-container{
+            height: 30px;
+            background: #0000ff;
+            position: absolute;
+            bottom:0px;
+            left:0px;
+            width: 100%;
+            text-align: center;
+        }
+        .content-container{
+            background: #000000;
+            position: absolute;
+            left: 0px;
+            top:60px;
+            width: 100%;
+            bottom:30px;
+            overflow: hidden;
+        }
+        .left-container{
+            width: 200px;
+            background: #2b542c;
+            position: absolute;
+            left:0px;
+            height: 100%;
+        }
+        .right-container{
+
+            background: #9d9d9d;
+            position: absolute;
+            left:200px;
+            height: 100%;
+            overflow: auto;
+            right: 0px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <div class="head-container">头部</div>
+    <div class="content-container">
+        <div class="left-container">走侧</div>
+        <div class="right-container">
+            <iframe src="http://www.163.com" height="100%" width="100%" frameborder="0"  ></iframe>
+        </div>
+    </div>
+    <div class="foot-container">尾部</div>
+</div>
+
+</body>
+</html>

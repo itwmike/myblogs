@@ -1,0 +1,23 @@
+﻿<% layout('layout.html') -%>
+
+<% block('title').append('<title>极限编程网</title>') %>
+
+<div class="article-list">
+    <% for(var i=0; i< articleList.length ; i++) {%>
+    <div class="article-item">
+        <h3 class="article-title">
+            <a href="/detail/<%= articleList[i]._id %>.html"><%=articleList[i].title %></a>
+        </h3>
+        <hr />
+        <div class="article-summary">
+            <p>
+                <%= articleList[i].summary %>
+            </p>
+        </div>
+        <div class="article-info">
+            posted @ <%=articleList[i].createTime.toLocaleDateString() %>
+        </div>
+    </div>
+    <%}%>
+
+</div>

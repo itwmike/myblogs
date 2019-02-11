@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="/public/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="/public/css/bootstrap/font-awesome.min.css" rel="stylesheet" />
+    <link href="/public/css/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
+    <title>登录-我的博客</title>
+    <style type="text/css">
+        .container {
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            width: 600px;
+            height: 400px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">我的博客</div>
+        <div class="panel-body">
+            <form class="form-horizontal" id="loginform">
+                <div class="form-group">
+                    <label for="uname" class="col-sm-2 control-label">帐号：</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="uname" name="uname" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="upass" class="col-sm-2 control-label">密码：</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="upass" name="upass" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" class="btn btn-default btn_login">登录</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+<script src="/public/scripts/jquery-2.1.4.min.js"></script>
+<script src="/public/scripts/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(".btn_login").click(function () {
+        $.post("/admin/sublogin", $("#loginform").serialize(), function (msg) {
+            if (msg.code == 0) {
+                window.location.href = "/admin/";
+            } else {
+                alert(msg.msg);
+            }
+        },"json");
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "name": "myblogs",
+  "version": "1.0.0",
+  "description": "I'm private blogs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "SET NODE_ENV=development&& node server.js",
+    "start": "SET NODE_ENV=production&& node server.js"
+  },
+  "author": "暗夜余晖",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "cookie-session": "2.0.0-beta.1",
+    "mongoose": "^4.10.2",
+    "async": "^2.4.1",
+    "compression": "^1.6.2",
+    "body-parser": "^1.14.2",
+    "ejs-mate": "^2.3.0",
+    "express": "^4.15.2",
+    "multer": "^1.3.0",
+    "serve-favicon": "^2.4.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.3.2",
+    "gulp-livereload": "^3.8.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "node-windows": "^0.1.14"
+  }
+}

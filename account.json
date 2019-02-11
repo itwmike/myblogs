@@ -1,0 +1,14 @@
+[
+  {
+    "logId":1,
+    "logName":"admin",
+    "nickName":"暗夜余晖",
+    "logPass":"123"
+  },
+  {
+    "logId":2,
+    "nickName":"持之以恒",
+    "logName":"郭燕飞",
+    "logPass":"123"
+  }
+]

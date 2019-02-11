@@ -1,0 +1,65 @@
+<% layout('admin/layout.html') -%>
+
+<% block('footScript').append('<script src="/public/scripts/admin/article_list.min.js"></script>') %>
+
+<div class="main-content-title">
+    <i class="fa fa-home p_r_10"></i>首页
+    <i class='fa fa-angle-right p_r_10 p_l_10'></i>文章管理
+</div>
+<div class="main-content-body">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <a class="btn btn-default" href="/admin/article/add" role="button">新增</a>
+        </div>
+    </div>
+    <table class="table table-bordered table-hover table-condensed">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>文章标题</th>
+            <th>所属分类</th>
+            <th>作者</th>
+            <th>是否发布</th>
+            <th>关键词</th>
+            <th>修改时间</th>
+            <th>创建时间</th>
+            <th>点赞人数</th>
+            <th>踩 人数</th>
+            <th>阅读人数</th>
+            <th>操      作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(var i=0; i< data.length; i++){ %>
+        <tr>
+            <td><%= i+1 %></td>
+            <td><%=data[i].title %></td>
+            <td><%=data[i]._category.name %></td>
+            <td><%=data[i].author %></td>
+            <td><%=data[i].isPublish %></td>
+            <td><%=data[i].keyWords %></td>
+            <td><%=data[i].updateTime.toLocaleString() %></td>
+            <td><%=data[i].createTime.toLocaleString() %></td>
+            <td><%=data[i].supportNum %></td>
+            <td><%=data[i].opposeNum %></td>
+            <td><%=data[i].readQuality %></td>
+            <td>
+                <a href="/admin/article/add/<%=data[i]._id %>">
+                    <span class="glyphicon glyphicon-pencil p_l_10"></span>
+                </a>
+                <a href="javascript:;" data-id="<%= data[i]._id %>">
+                    <span class="glyphicon glyphicon-remove p_l_10"></span>
+                </a>
+            </td>
+        </tr>
+        <%} %>
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <% for(var i=1; i <= pageCount() ;i++) {%>
+            <li><a href="/admin/article/list?p=<%=i%>"><%= i %></a></li>
+            <%}%>
+        </ul>
+    </nav>
+</div>

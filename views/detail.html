@@ -1,0 +1,92 @@
+<% layout('layout.html') -%>
+
+<% block('title').append('<title>'+article.title+'</title>') %>
+<% block('keywords').append('<meta content="'+article.keyWords+'" name="keywords">') %>
+<% block('description').append('<meta content="'+article.summary+'" name="description" id="description">') %>
+
+<% block('headStyle').append('<link rel="stylesheet"  type="text/css" href="/public/css/front/detail.min.css">') %>
+<% block('headStyle').append('<link  rel="stylesheet" type="text/css" href="/public/css/front/share.css">') %>
+<% block('headStyle').append('<link  rel="stylesheet" type="text/css" href="/public/scripts/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css">') %>
+
+<% block('footScript').append('<script type="text/javascript" charset="utf-8" src="/public/scripts/share.js"></script>') %>
+<% block('footScript').append('<script type="text/javascript" charset="utf-8" src="/public/scripts/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>') %>
+<% block('footScript').append('<script type="text/javascript" charset="utf-8" src="/public/scripts/front/detail.min.js"></script>') %>
+
+<article>
+    <input type="hidden" value="<%=article._id %>" id="txt_id">
+    <div class="article-container">
+        <div class="article-title">
+            <a href="/detail/<%=article._id %>.html"><%=article.title %></a>
+            <div class="article-share">
+                <a class="share_icon_xl" href="javascript:void(0);"  title="分享到微博"></a>
+                <a class="share_icon_wx" href="javascript:void(0);"  title="分享到微信"></a>
+                <a class="share_icon_qq" href="javascript:void(0);"  title="分享到QQ"></a>
+            </div>
+        </div>
+        <hr />
+        <div class="article-content">
+            <%- article.content %>
+        </div>
+        <div class="article-copyright">
+            <p>
+                作者：<span class="author"><%=article.author %></span>
+            </p>
+            <p>
+                本文版权归作者所有，欢迎转载，但未经作者同意必须保留此段声明，且在文章页面明显位置给出原文连接，否则保留追究法律责任的权利。
+            </p>
+        </div>
+        <div class="article-category">
+            <p>
+                分类：<a href="/list/<%=article._category._id %>" class="category"><%=article._category.name %></a>
+            </p>
+        </div>
+        <div class="article-advisebox">
+            <div class="article-advise">
+                <p class="advise-num advise-num-support"><%=article.supportNum %></p>
+                <p class="advise-txt advise-txt-support">
+                    <i></i>
+                    支持
+                </p>
+            </div>
+            <div class="article-advise">
+                <p class="advise-num advise-num-oppose"><%=article.opposeNum %></p>
+                <p class="advise-txt advise-txt-oppose"><i></i>反对</p>
+            </div>
+            <div class="article-ad">
+                <a target="_blank" href="https://s.click.taobao.com/t?e=m%3D2%26s%3DHI5X97M7NjQcQipKwQzePCperVdZeJviEViQ0P1Vf2kguMN8XjClAvlIc3STXQ7sz6TUNgKEjaKSYxvizkXkp868iCTtlyPlhv8pEZmNN6UidardOxz9JW14CrwUSusuiYWStHE%2B0ceFSvfO0N66nzO5MaXTjVACe2l9FrhMrdPv%2BfHIT3CFRNdvthxiSWPsdnn9YK8Mk5i05lNkgxQmm7OShjQ0JoEGox4w4%2FHrGZVxKmPmpIKZsA%3D%3D">
+                    <img src="/public/images/alimama_2_300-100.jpg" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="article-publish">
+            posted @<%=article.createTime.toLocaleDateString() %>
+            &nbsp;拜读(<%=article.readQuality %>)
+        </div>
+
+    </div>
+</article>
+
+<div class="comment-box">
+    <p>评论列表</p>
+
+    <div class="comment-list">
+        <% if(commentList!=null){
+          for(var i=commentList.length-1;i>=0;i-- ){%>
+            <div class="comment-item">
+                <div class="comment-pushpreson">
+                    #<%=i+1 %>楼 <%=commentList[i].createTime.toLocaleDateString() %> <%=commentList[i].ipaddress %>
+                </div>
+                <div class="comment-content">
+                    <%- commentList[i].content %>
+                </div>
+            </div>
+
+        <%}} %>
+    </div>
+    <div>
+        <p>评论内容：</p>
+        <textarea class="txt-content"></textarea><br/>
+        <button type="button" id="btn_addComment">提交评论</button>
+    </div>
+</div>
+

@@ -1,0 +1,139 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+.p_r_10 {
+    padding-right: 10px;
+}
+
+.p_l_10 {
+    padding-left: 10px;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: '微软雅黑';
+}
+
+.head {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 45px;
+    overflow: hidden;
+    background: #438eb9;
+}
+
+    .head .nav_icon {
+        line-height: 45px;
+        color: #fff;
+        font-size: 18px;
+        padding-left: 30px;
+    }
+
+        .head .nav_icon i {
+            padding-right: 10px;
+            display: inline-block;
+        }
+
+.main-container {
+    position: absolute;
+    top: 45px;
+    left: 0px;
+    bottom: 30px;
+    width: 100%;
+}
+
+    .main-container .sidebar {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        bottom: 0px;
+        width: 190px;
+        border-right: 1px solid #ddd;
+        overflow: auto;
+    }
+
+        .main-container .sidebar .sidebar_title {
+            height: 36px;
+            background-color: #fafafa;
+            border-bottom: 1px solid #DDD;
+            line-height: 36px;
+            padding-left: 20px;
+            font-size: 18px;
+        }
+
+        .main-container .sidebar .sidebar_menu ul {
+            list-style: none;
+        }
+
+            .main-container .sidebar .sidebar_menu ul li {
+                padding-left: 20px;
+                cursor: pointer;
+                font-size: 16px;
+                width: 100%;
+                background-color: #fafafa;
+                height: 40px;
+                line-height: 40px;
+                border-bottom: 1px solid #DDD;
+            }
+
+                .main-container .sidebar .sidebar_menu ul li.focus, .main-container .sidebar .sidebar_menu ul li:hover {
+                    background-color: #fff;
+                    color: #2b7dbc;
+                    border-left: 2px solid #438eb9;
+                }
+.sidebar_menu ul li a:hover{
+    text-decoration: none;
+}
+    .main-container .main-content {
+        position: absolute;
+        left: 190px;
+        top: 0px;
+        right: 0px;
+        height: 100%;
+        overflow: auto;
+    }
+
+        .main-container .main-content .main-content-title {
+            height: 36px;
+            background-color: #fafafa;
+            border-bottom: 1px solid #DDD;
+            line-height: 36px;
+            padding-left: 20px;
+            font-size: 14px;
+        }
+
+.main-content-body {
+    padding: 10px;
+}
+
+    .main-content-body .search {
+        float: right;
+    }
+
+    .main-content-body .expeditedssl:hover {
+        color: red;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+.foot {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    height: 30px;
+    overflow: hidden;
+    width: 100%;
+    border-top: 1px solid #ddd;
+}

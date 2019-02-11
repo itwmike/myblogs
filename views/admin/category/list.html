@@ -1,0 +1,49 @@
+<% layout('admin/layout.html') -%>
+
+<% block('footScript').append('<script src="/public/scripts/admin/category_list.min.js"></script>') %>
+
+<div class="main-content-title">
+    <i class="fa fa-home p_r_10"></i>首页
+    <i class='fa fa-angle-right p_r_10 p_l_10'></i>分类管理
+</div>
+<div class="main-content-body">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <a class="btn btn-default" href="/admin/category/add" role="button">新增</a>
+        </div>
+    </div>
+    <table class="table table-bordered table-hover table-condensed">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>分类名称</th>
+            <th>创建时间</th>
+            <th>操      作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(var i=0; i< data.length; i++){ %>
+        <tr>
+            <th><%= i+1 %></th>
+            <th><%=data[i].name %></th>
+            <th><%=data[i].createTime.toLocaleString() %></th>
+            <th>
+                <a href="/admin/category/add/<%=data[i]._id %>">
+                    <span class="glyphicon glyphicon-pencil p_l_10"></span>
+                </a>
+                <a href="javascript:;" data-id="<%= data[i]._id %>">
+                    <span class="glyphicon glyphicon-remove p_l_10"></span>
+                </a>
+            </th>
+        </tr>
+        <%} %>
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <% for(var i=1; i < pageCount() ;i++) {%>
+            <li><a href="/admin/category/list?p=<%=i%>"><%= i %></a></li>
+            <%}%>
+        </ul>
+    </nav>
+</div>
