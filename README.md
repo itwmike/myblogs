@@ -6,3 +6,11 @@
       
 ## 博客地址
 [极限编程网](https://www.limitcode.com/)
+
+## 安装步骤
+请先启动mongodb，dbpath 路径为项目data文件夹 
+```
+npm install
+
+npm run dev 
+```
