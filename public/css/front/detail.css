@@ -105,28 +105,30 @@
   margin-bottom: 0.1rem;
   margin-top: 0.1rem;
 }
-.article-content ol.custom_num {
+.article-content ol {
   padding: 6px 0px;
+  counter-reset: sectioncounter;
 }
-.article-content ol.custom_num li {
+.article-content ol li {
   border-top: 1px solid #ccc;
   padding-top: 4px;
   position: relative;
   margin-bottom: 6px;
 }
-.article-content ol.custom_num li p {
+.article-content ol li p {
   padding-left: 46px;
 }
-.article-content ol.custom_num li:before {
+.article-content ol li:before {
   position: absolute;
   top: 0px;
   bottom: 0px;
   display: flex;
-  content: '1';
+  content: counter(sectioncounter);
   width: 40px;
   background-color: #ccc;
   align-items: center;
   justify-content: center;
+  counter-increment: sectioncounter;
 }
 .article-content .content-subtitle {
   color: #FFF;
