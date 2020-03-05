@@ -49,8 +49,11 @@ route.post("/sublogin",function(req,res,next){
         responseResult.msg="密码不可为空";
         res.send(responseResult);
     }
+
     //读取账号配置文件
-    var accountArr=JSON.parse(fs.readFileSync(path.join(__dirname,"../account.json"),"utf-8"));
+    var accountStr=fs.readFileSync(path.join(__dirname,"../account.json"),"utf8").trim();
+
+    var accountArr=JSON.parse(accountStr);
     var result=false;
     for(var i=0;i<accountArr.length;i++){
         if(accountArr[i].logName==uname&&accountArr[i].logPass==upass){

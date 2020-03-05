@@ -23,8 +23,12 @@ var certificate = fs.readFileSync(path.join(__dirname,'./config/214109597780064.
 var credentials = {key: privateKey, cert: certificate};
 
 var app = new express();
-var port = process.env.PORT || 8080;
 var node_env=process.env.NODE_ENV;
+var default_port = 8080;
+if (node_env === "production") {
+  default_port = 80;
+}
+var port = process.env.PORT || default_port;
 
 app.engine("html", ejs.__express);//定义 模板引擎使用 html后缀文件作为视图
 app.set("views","./views");//配置 html 视图文件的存放位置
