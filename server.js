@@ -58,7 +58,10 @@ app.use("/admin", admin_route);
 app.use("/api",api_route);
 app.use("/", front_route);
 
-mongoose.connect('mongodb://127.0.0.1/MyBlogs',{useMongoClient:true});
+mongoose.connect('mongodb://127.0.0.1/MyBlogs',{
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, '数据库连接失败'));
 db.once('open', function() {
