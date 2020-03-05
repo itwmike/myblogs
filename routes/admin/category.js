@@ -20,7 +20,7 @@ var pageData={
 /* 博客分类列表页面 */
 route.get("/list",function(req,res,next){
     pageData.pageIndex=req.query.p || 1;
-    category_model.count(function(err,count){
+    category_model.countDocuments(function(err,count){
         if(err){  return; }
         pageData.total=count;
         var query=category_model.find({isDell:false})
@@ -50,7 +50,7 @@ route.get("/add/:id?",function(req,res,next){
 });
 /*删除分类*/
 route.get("/del/:id",function(req,res,next){
-    category_model.remove({_id:req.params.id},function(err){
+    category_model.deleteOne({_id:req.params.id},function(err){
         if(err){
             res.send({code:1,msg:"删除失败："+err});
         }else{
@@ -71,7 +71,7 @@ route.post("/subadd",function(req,res,next){
     ent._id=id;
     var model=category_model.findById(ent._id,function (err,doc) {
         if(doc){
-            category_model.update({ _id:id },ent, function (err,raw) {
+            category_model.updateOne({ _id:id },ent, function (err,raw) {
                 if(err){
                     res.send({code:2,msg:'保存失败'+err});
                 }else{

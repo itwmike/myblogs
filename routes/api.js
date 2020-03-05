@@ -43,7 +43,7 @@ route.get("/getArticleList",function(req,res,next){
     if(c){
         where._category=c;
     }
-    article_model.count(where,function(err,count){
+    article_model.countDocuments(where,function(err,count){
         pageData.total=count;
         article_model.find(where).sort({_id:-1}).skip( (pageData.pageIndex-1)*pageData.pageSize)
             .limit(pageData.pageSize).exec(function(err,docs){

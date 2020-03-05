@@ -42,7 +42,7 @@ route.get("/",function(req,res,next){
             });
         },function(callback){
             //获取文章总数量
-            article_model.count({isDell:false,isPublish:true},function(err,count){
+            article_model.countDocuments({isDell:false,isPublish:true},function(err,count){
                 callback(null,count);
             });
         }],function(err, results){
@@ -71,7 +71,7 @@ route.get(/^\/detail\/([a-zA-Z0-9]{10,})(\.html)?/,function(req,res,next){
         },function (callback) {
             article_model.findById(article_id).populate("_category",{name:1}).exec(function(err,doc){
                 doc.readQuality+=1;
-                article_model.update({ _id:article_id },{'$inc':{'readQuality':1} },function (err,raw) {
+                article_model.updateOne({ _id:article_id },{'$inc':{'readQuality':1} },function (err,raw) {
 
                 });
                 callback(null,doc);
@@ -120,7 +120,7 @@ route.get("/addSupport/:id",function (req,res,next) {
         if(err||doc==null){
             res.json({"code":2,"msg":"文章不存在。"});
         }else{
-            article_model.update({ _id:id },{supportNum:doc.supportNum+1}, function (err,raw){
+            article_model.updateOne({ _id:id },{supportNum:doc.supportNum+1}, function (err,raw){
                 res.json({"code":0,"msg":"操作成功。"});
             });
         }
@@ -138,7 +138,7 @@ route.get("/addOppose/:id",function (req,res,next) {
         if(err ||doc==null){
             res.json({"code":2,"msg":"文章不存在。"});
         }else{
-            article_model.update({ _id:id },{opposeNum:doc.opposeNum+1}, function (err,raw){
+            article_model.updateOne({ _id:id },{opposeNum:doc.opposeNum+1}, function (err,raw){
                 res.json({"code":0,"msg":"操作成功。"});
             });
         }

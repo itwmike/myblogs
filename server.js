@@ -71,7 +71,7 @@ db.once('open', function() {
 console.log("开始启动服务");
 
 var server = http.createServer(app);
-console.log(port);
+console.log('监听端口：' + port);
 server.listen(port);
 if (node_env === "production") {
     var httpsServer = https.createServer(credentials, app);

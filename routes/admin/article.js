@@ -28,7 +28,7 @@ route.get("/list",function(req,res,next){
     async.parallel([
         function(callback){
             //获取文章总数量
-            article_model.count({isDell:false},function(err,count){
+            article_model.countDocuments({isDell:false},function(err,count){
                 callback(null,count);
             });
         },
@@ -72,7 +72,7 @@ route.get("/add/:id?",function(req,res,next){
 });
 /*删除文章*/
 route.get("/del/:id",function(req,res,next){
-    article_model.update({_id:req.params.id},{isDell:true},function(err){
+    article_model.updateOne({_id:req.params.id},{isDell:true},function(err){
         if(err){
             res.send({code:1,msg:"删除失败："+err});
         }else{
@@ -118,7 +118,7 @@ route.post("/subadd",function(req,res,next){
             if(!doc.author){
                 data.author=req.session.userinfo.nickName;
             }
-            article_model.update({ _id:id },data, function (err,raw) {
+            article_model.updateOne({ _id:id },data, function (err,raw) {
                 if(err){
                     res.send({code:2,msg:'保存失败'+err});
                 }else{
@@ -145,7 +145,7 @@ route.get("/commentList",function (req,res,next) {
     async.parallel([
         function(callback){
             //获取评论总数量
-            comment_model.count({isDell:false,article_id:article_id},function(err,count){
+            comment_model.countDocuments({isDell:false,article_id:article_id},function(err,count){
                 callback(null,count);
             });
         },
