@@ -26,7 +26,7 @@
   border: 1px #ccc solid;
 }
 .article-container .article-content {
-  padding-top: 0.18rem;
+  padding-top: 0.14rem;
   font-size: 0.16rem;
   line-height: 0.18rem;
   overflow-x: auto;
@@ -35,8 +35,7 @@
   float: right;
 }
 .article-share a {
-  background-image: url('/public/images/share_icon_circle.png');
-  background-repeat: no-repeat;
+  background: url('/public/images/share_icon_circle.png') no-repeat;
   width: 0.32rem;
   height: 0.32rem;
   vertical-align: middle;
@@ -80,10 +79,58 @@
   color: #ccc;
   padding-right: 0.2rem;
 }
+.article-content h1 {
+  color: #FFF;
+  padding: 0.1rem 0.1rem 0.1rem 0.08rem;
+  border-radius: 0.04rem;
+  background-color: #6FA833 !important;
+  margin-bottom: 0.1rem;
+  margin-top: 0.1rem;
+}
+.article-content h2 {
+  font-size: .20rem;
+  background-color: #FFF;
+  color: #6FA833;
+  border-bottom: solid 1px #6FA833;
+  padding: 0.1rem 0.1rem 0.1rem 0rem;
+  margin-bottom: 0.1rem;
+  margin-top: 0.1rem;
+}
+.article-content h3 {
+  font-size: .16rem;
+  background-color: #FFF;
+  color: #6FA833;
+  border-bottom: solid 1px #6FA833;
+  padding: 0.1rem 0.1rem 0.1rem 0rem;
+  margin-bottom: 0.1rem;
+  margin-top: 0.1rem;
+}
+.article-content ol.custom_num {
+  padding: 6px 0px;
+}
+.article-content ol.custom_num li {
+  border-top: 1px solid #ccc;
+  padding-top: 4px;
+  position: relative;
+  margin-bottom: 6px;
+}
+.article-content ol.custom_num li p {
+  padding-left: 46px;
+}
+.article-content ol.custom_num li:before {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  display: flex;
+  content: '1';
+  width: 40px;
+  background-color: #ccc;
+  align-items: center;
+  justify-content: center;
+}
 .article-content .content-subtitle {
   color: #FFF;
-  padding: 0.06rem;
-  padding-left: 0.06rem;
+  padding: 0.1rem 0.1rem 0.1rem 0.08rem;
   border-radius: 0.04rem;
   background-color: #6FA833 !important;
   margin-bottom: 0.1rem;
@@ -91,7 +138,7 @@
 }
 .article-content p {
   color: #494949;
-  line-height: 0.2rem;
+  line-height: 0.30rem;
 }
 .article-content .content-hint {
   font-weight: bold;

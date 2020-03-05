@@ -80,7 +80,7 @@ route.get(/^\/detail\/([a-zA-Z0-9]{10,})(\.html)?/,function(req,res,next){
             comment_model.find({isDell:false,article_id:article_id}).exec(function (err,docs) {
                 callback(null,docs);
             });
-            
+
         }],function (err,results) {
         pageData.categoryList=results[0];
         pageData.article=results[1];
@@ -164,5 +164,8 @@ route.post("/addComment/:id",function (req,res,next) {
     });
 
 });
-
+// 博主团队
+route.get("/team",function(req,res,next){
+  res.render("team");
+});
 module.exports = route;

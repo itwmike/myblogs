@@ -58,7 +58,12 @@ app.use("/admin", admin_route);
 app.use("/api",api_route);
 app.use("/", front_route);
 
-mongoose.connect('mongodb://127.0.0.1/MyBlogs');
+mongoose.connect('mongodb://127.0.0.1/MyBlogs',{useMongoClient:true});
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, '数据库连接失败'));
+db.once('open', function() {
+  console.log("数据库已连接");
+});
 
 console.log("开始启动服务");
 
