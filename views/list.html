@@ -21,3 +21,14 @@
     <%}%>
 
 </div>
+
+<div class="page-box">
+    <% if( pageCount() >1 ){
+    for(var i=1;i<= pageCount();i++){
+    if(i== pageIndex){ %>
+    <a href="/list/<%=categoryId %>?p=<%=i %>" class="force"><%=i %></a>
+    <%} else{%>
+    <a href="/list/<%=categoryId %>?p=<%=i %>"><%=i %></a>
+    <%}%>
+    <%}} %>
+</div>

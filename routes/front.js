@@ -92,19 +92,34 @@ route.get(/^\/detail\/([a-zA-Z0-9]{10,})(\.html)?/,function(req,res,next){
 /*分类下的文章列表*/
 route.get("/list/:id",function(req,res,next){
     var cid=req.params.id;//获取分类编号
-    //首页应该加载推荐的文章，此处没做推荐处理，见谅！
-    var pageData={
-        categoryList:null,
-        articleList:null,
-    };
+    pageData.pageIndex=req.query.p || 1;
+    pageData.categoryId = cid;
     //加载博客分类
-    category_model.find({isDell:false},function(err,docs){
-        pageData.categoryList=docs;
-        article_model.find({isDell:false,isPublish:true,_category:cid}).sort({createTime:-1}).exec(function(err,docs){
-            pageData.articleList=docs;
-            res.render("list",pageData);
-        });
-    });
+    async.parallel([
+        function(callback){
+          //加载博客分类
+          category_model.find({isDell:false},function(err,docs){
+            callback(null,docs);
+          })
+        },
+        function(callback){
+          article_model.find({isDell:false,isPublish:true,_category:cid}).sort({createTime:-1}).skip((pageData.pageIndex-1)*pageData.pageSize)
+            .limit(pageData.pageSize).exec(function(err,docs){
+            callback(null,docs);
+          });
+        },function(callback){
+          //获取文章总数量
+          article_model.countDocuments({isDell:false,isPublish:true,_category:cid},function(err,count){
+            callback(null,count);
+          });
+        }],function(err, results){
+        pageData.categoryList=results[0];
+        pageData.articleList=results[1];
+        pageData.total=results[2];
+
+        res.render("list",pageData);
+      }
+    );
 });
 //下载android app
 route.get("/down/android",function(req,res,next) {

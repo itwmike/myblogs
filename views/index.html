@@ -26,11 +26,11 @@
 
 <div class="page-box">
     <% if( pageCount() >1 ){
-        for(var i=1;i<= pageCount();i++){
-            if(i== pageIndex){ %>
-                <a href="/?p=<%=i %>" class="force"><%=i %></a>
-            <%} else{%>
-                <a href="/?p=<%=i %>"><%=i %></a>
-        <%}%>
+    for(var i=1;i<= pageCount();i++){
+    if(i== pageIndex){ %>
+    <a href="/?p=<%=i %>" class="force"><%=i %></a>
+    <%} else{%>
+    <a href="/?p=<%=i %>"><%=i %></a>
+    <%}%>
     <%}} %>
 </div>
