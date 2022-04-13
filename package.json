@@ -10,7 +10,7 @@
   "author": "暗夜余晖",
   "license": "ISC",
   "dependencies": {
-    "async": "^2.4.1",
+    "async": "^3.2.2",
     "body-parser": "^1.14.2",
     "compression": "^1.6.2",
     "cookie-session": "2.0.0-beta.1",
